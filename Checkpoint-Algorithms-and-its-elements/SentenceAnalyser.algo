@@ -1,0 +1,35 @@
+ALGORITHM SentenceAnalyser
+VAR
+    leng, count_wrd, count_vwl, i : INTEGER :=0;
+    stc, wrd : STRING;
+BEGIN
+    Write("Write a sentence that ends with a point:");
+    Read(stc);
+
+    leng := length(stc);
+    FOR i FROM 1 TO leng STEP 1  DO
+    
+        IF (stc[i] = ' ') THEN
+            IF (not (wrd = "")) THEN
+                count_wrd := count_wrd + 1;
+                wrd := "";
+            END_IF
+        ELSE_IF (stc[i] = 'a' or stc[i] = 'e' or stc[i] = 'i'
+             or stc[i] = 'o' or stc[i] = 'u' or stc[i] = 'A'
+             or stc[i] = 'E' or stc[i] = 'I' or stc[i] = 'O'
+             or stc[i] = 'U') THEN
+            
+            count_vwl := count_vwl + 1;
+        END_IF
+        
+        wrd += stc[i]
+    END_FOR
+
+    IF (not (wrd = "")) THEN
+        count_wrd := count_wrd + 1;
+    END_IF
+
+    Write("Length of sentence: ", leng);
+    Write("Number of words: ", count_wrd);
+    Write("Number of vowels: ", count_vwl);
+END
