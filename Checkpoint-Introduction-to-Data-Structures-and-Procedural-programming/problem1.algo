@@ -1,0 +1,50 @@
+PROCEDURE fill(VAR s: ARRAY_OF INTEGER, len : INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    FOR i FROM 1 TO len STEP 1  DO
+        Read(s[i]);
+    END_FOR
+END
+
+PROCEDURE distictSet()
+VAR
+    i, j : INTEGER;
+    flag : BOOLEAN;
+BEGIN
+    FOR i FROM 1 TO length.s1 STEP 1  DO
+        FOR j FROM 1 TO length.s2 STEP 1  DO
+            IF (not s1[i]=s2[j]) THEN
+                sum = sum + s1[i] + s2[j];
+            END_IF
+        END_FOR
+    END_FOR 
+END
+
+FUNCTION distictSum() : INTEGER
+VAR
+    i,sum : INTEGER := 0;
+BEGIN
+    FOR i FROM 1 TO length.sd STEP 1  DO
+        sum = sum + sd[i];
+    END_FOR
+    RETURN sum ;
+END
+
+ALGORITHM problem1
+VAR
+    s1 : ARRAY_OF INTEGER[X];
+    s2 : ARRAY_OF INTEGER[Y];
+    sd : ARRAY_OF INTEGER[100];
+    X,Y : INTEGER;
+BEGIN
+    Read(X);
+    Read(Y);
+    
+    fill(s1,X);
+    fill(s2,Y);
+
+    distictSet();
+
+    Write(distictSum());
+END
